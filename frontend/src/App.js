@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Mapa from './pages/Mapa';
 import Sobre from './pages/Sobre';
 import Contato from './pages/Contato';
+import "leaflet/dist/leaflet.css"; // Importando os estilos do Leaflet
 
 function App() {
   return (
