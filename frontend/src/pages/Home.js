@@ -1,13 +1,12 @@
-import Sidebar from "../components/Sidebar";
-import MapView from "../components/MapView";
+import React from 'react';
 
-export default function Home() {
+const Home = () => {
     return (
-        <div className="flex">
-            <Sidebar />
-            <div className="ml-64 w-full">
-                <MapView />
-            </div>
+        <div className="container text-center mt-5">
+            <h1>Bem-vindo ao Jardim Botânico da UFSM 🌿</h1>
+            <p>Explore a biodiversidade e a beleza natural do nosso espaço!</p>
         </div>
     );
-}
+};
+
+export default Home;
