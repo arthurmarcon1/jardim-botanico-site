@@ -6,7 +6,7 @@ const Contato = () => {
         <div className="container mx-auto py-10 px-5 text-center">
             <h1 className="text-3xl font-bold mb-6">Entre em Contato</h1>
             <div className="flex flex-col items-center space-y-6 text-lg">
-                
+
                 {/* Instagram */}
                 <a
                     href="https://www.instagram.com/jardimbotanicodaufsm"
@@ -34,17 +34,16 @@ const Contato = () => {
                     <FaWhatsapp className="text-4xl" />
                     <span className="text-xl">(55) 99193-8183</span>
                 </a>
-
-                {/* Email (Agora Separado do WhatsApp) */}
-                <a
+                <div
                     href="mailto:jardimbotanico@ufsm.br"
                     className="flex items-center space-x-3 text-red-500 hover:text-red-700 transition-transform transform hover:scale-110"
                 >
                     <FaEnvelope className="text-4xl" />
                     <span className="text-xl">jardimbotanico@ufsm.br</span>
-                </a>
+
+                </div>
             </div>
-        </div>
+        </div >
     );
 };
 
