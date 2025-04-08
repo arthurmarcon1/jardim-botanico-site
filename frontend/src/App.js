@@ -4,10 +4,11 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Mapa from './pages/Mapa';
 import Sobre from './pages/Sobre';
-import Contato from './pages/Contato';
-import "leaflet/dist/leaflet.css"; // Importando os estilos do Leaflet
+import Animais from './pages/Animais';
 import ConteudoMapa from './pages/ConteudoMapa';
+import TelhadoVerde from './pages/TelhadoVerde'; // NOVO
 import Footer from './components/Footer';
+import "leaflet/dist/leaflet.css";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/mapa" element={<Mapa />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contato" element={<Contato />} />
+          <Route path="/animais" element={<Animais />} />
           <Route path="/conteudo" element={<ConteudoMapa />} />
+          <Route path="/telhado-verde" element={<TelhadoVerde />} /> {/* novo */}
         </Routes>
       </div>
       <Footer />
