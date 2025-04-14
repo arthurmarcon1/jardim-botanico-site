@@ -53,11 +53,11 @@ const AnimalDetalhe = () => {
             <img src={`/${animal.image}`} alt={animal.name} style={{ maxWidth: '400px', width: '100%', borderRadius: '10px', marginBottom: '20px' }} />
             <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>{animal.details}</p>
 
-            {/* Botão de Voltar */}
+
             <div
                 style={{
                     position: 'absolute',
-                    top: '90px', // altura da barra verde, ajuste se necessário
+                    top: '90px',
                     left: '20px',
                     zIndex: 10,
                 }}
@@ -65,7 +65,7 @@ const AnimalDetalhe = () => {
                 <Link
                     to="/"
                     style={{
-                        backgroundColor: '#8B4513', // marrom
+                        backgroundColor: '#8B4513',
                         color: '#fff',
                         padding: '10px 16px',
                         borderRadius: '8px',
