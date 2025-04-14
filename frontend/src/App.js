@@ -6,7 +6,8 @@ import Mapa from './pages/Mapa';
 import Sobre from './pages/Sobre';
 import Animais from './pages/Animais';
 import ConteudoMapa from './pages/ConteudoMapa';
-import TelhadoVerde from './pages/TelhadoVerde'; // NOVO
+import TelhadoVerde from './pages/TelhadoVerde';
+import AnimalDetalhe from './pages/AnimalDetalhe';
 import Footer from './components/Footer';
 import "leaflet/dist/leaflet.css";
 
@@ -20,8 +21,9 @@ function App() {
           <Route path="/mapa" element={<Mapa />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/animais" element={<Animais />} />
+          <Route path="/animal/:id" element={<AnimalDetalhe />} />
           <Route path="/conteudo" element={<ConteudoMapa />} />
-          <Route path="/telhado-verde" element={<TelhadoVerde />} /> {/* novo */}
+          <Route path="/telhado-verde" element={<TelhadoVerde />} />
         </Routes>
       </div>
       <Footer />

@@ -1,41 +1,37 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // <-- Adicionado
 
 const Animais = () => {
   const animais = [
     {
       id: 1,
       name: 'Bugiu Ruivo',
-      description: '  Espécie de primata encontrada na América do Sul, conhecida por seu pelo avermelhado.',
-      image: 'imgs/Bugiu-Ruivo.jpg', // altere com seus próprios caminhos de imagem
-      link: '#'
+      description: 'Espécie de primata encontrada na América do Sul, conhecida por seu pelo avermelhado.',
+      image: 'imgs/Bugiu-Ruivo.jpg',
     },
     {
       id: 2,
       name: 'Amanita Muscaria',
       description: 'Cogumelo icônico, conhecido por sua aparência vibrante e toxicidade.',
       image: 'imgs/Amanita_muscaria.jpg',
-      link: '#'
     },
     {
       id: 3,
       name: 'Quero-Quero',
       description: 'Ave típica do Brasil, conhecida por seu canto e comportamento territorial.',
       image: 'imgs/quero-quero2.jpg',
-      link: '#'
     },
     {
       id: 4,
       name: 'Tatu mulita',
       description: 'Espécie de tatu encontrada no sul Brasil, conhecida por seu tamanho grande e carapaça.',
       image: 'imgs/Dasypus-hybridus-1.jpg',
-      link: '#'
     },
     {
       id: 5,
-      name: 'Tigre d’água', 
-      description: 'Espécie de tartaruga encontrada no Brasil, conhecida por viver em zonas de pântanos, banhados, lagos, riachos e rios..',
+      name: 'Tigre d’água',
+      description: 'Espécie de tartaruga encontrada no Brasil, conhecida por viver em zonas de pântanos, banhados, lagos, riachos e rios.',
       image: 'imgs/tigre_dagua.jpg',
-      link: '#'
     }
   ];
 
@@ -77,8 +73,6 @@ const Animais = () => {
     height: 'auto',
     objectFit: 'contain'
   };
-  
-  
 
   const contentStyle = {
     padding: '20px',
@@ -121,7 +115,7 @@ const Animais = () => {
             <div style={contentStyle}>
               <h3 style={headingStyle}>{item.name}</h3>
               <p style={descStyle}>{item.description}</p>
-              <a href={item.link} style={buttonStyle}>Saiba mais</a>
+              <Link to={`/animal/${item.id}`} style={buttonStyle}>Saiba mais</Link>
             </div>
           </div>
         ))}
