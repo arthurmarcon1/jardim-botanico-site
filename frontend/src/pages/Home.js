@@ -1,11 +1,13 @@
 import React from 'react';
+import HomeIntro from '../components/home/HomeIntro';
+import HomeNews from '../components/home/HomeNews';
 
 const Home = () => {
     return (
-        <div className="container text-center mt-5">
-            <h1>Bem-vindo ao Jardim Botânico da UFSM 🌿</h1>
-            <p>Explore a biodiversidade e a beleza natural do nosso espaço!</p>
-        </div>
+        <>
+        <HomeIntro></HomeIntro>
+        <HomeNews></HomeNews>
+        </>
     );
 };
 
