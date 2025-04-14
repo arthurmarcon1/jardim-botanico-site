@@ -4,7 +4,7 @@ const HomeNews = () => {
   const news = [
     {
       id: 1,
-      title: 'Nova espécie de planta é descoberta',
+      title: 'Nova espécie de planta é descoberta no Jardim Botânico',
       description: 'Pesquisadores da UFSM identificam uma nova espécie de planta nativa no Jardim Botânico.',
       image: '/imgs/fundo1.jpeg',
       link: '#'
