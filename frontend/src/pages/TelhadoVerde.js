@@ -2,11 +2,11 @@ function TelhadoVerde() {
   return (
     <div style={{ height: "100vh" }}>
       <iframe
-        src="buildNova/index.html"
+        src="Build Teste/index.html" // olhar o nome da build para evitar erros !!!!!!!!!!!!!!
         title="Telhado Verde"
         width="100%"
         height="100%"
-        style={{ border: 'none' }}
+        style={{ border: 'none' , backgroundColor: '#c3debf'}}
       ></iframe>
     </div>
   );
