@@ -7,7 +7,7 @@ const HomeNews = () => {
       title: 'Nova espécie de planta é descoberta no Jardim Botânico',
       description: 'Pesquisadores da UFSM identificam uma nova espécie de planta nativa no Jardim Botânico.',
       image: '/imgs/fundo1.jpeg',
-      link: '#'
+      link: 'https://www.ufsm.br/orgaos-suplementares/jardim-botanico/2025/03/11/jardim-botanico-celebra-o-dia-das-mulheres-com-programacao-especial'
     },
     {
       id: 2,
