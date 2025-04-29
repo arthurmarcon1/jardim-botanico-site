@@ -1,6 +1,7 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import { Polyline } from 'react-leaflet';
 
 const customIcon = L.icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/64/684/684908.png", // URL do ícone
@@ -12,10 +13,10 @@ const customIcon = L.icon({
 
 
 const Mapa = () => {
-    const position = [-29.71870113619748, -53.729370902110595];
+    const position = [-29.716865662394206, -53.72958918802292];
 
-   // const positionSul = [-29.719000, -53.729500]; // Um pouco ao sul
-    const positionNorte = [-29.718500, -53.729000]; // Um pouco ao norte
+    const positionSul = [-29.717239138209052, -53.73021720488579]; // Um pouco ao sul
+   // const positionNorte = [-29.718500, -53.729000]; // Um pouco ao norte
    // const positionLeste = [-29.718800, -53.728800]; // Um pouco a leste
    // const positionOeste = [-29.719100, -53.729800]; // Um pouco a oeste;
 
@@ -23,14 +24,20 @@ const Mapa = () => {
         <div style={{ height: "90vh", width: "100%" }}>
             <MapContainer center={position} zoom={17} style={{ height: "100%", width: "100%" }}>
                 <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                    attribution='Tiles © Esri'
                 />
-                <Marker position={position}>
-                    <Popup> Jardim Botânico UFSM 🌿 </Popup>
+                <Marker position={position} icon={customIcon}>
+                    <Popup> Entrada Jardim Botânico UFSM 🌿 </Popup>
                 </Marker>
 
-                <Marker position={positionNorte} icon={customIcon}>
-                    <Popup> position norte 🌿 </Popup>
+                <Polyline
+                positions={[position, positionSul]}
+                pathOptions={{ color: 'gray' }}
+                />
+
+                <Marker position={positionSul} icon={customIcon}>
+                    <Popup> 2 🌿 </Popup>
                 </Marker>
 
 
