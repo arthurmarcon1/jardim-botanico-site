@@ -4,24 +4,24 @@ const HomeNews = () => {
   const news = [
     {
       id: 1,
-      title: 'Nova espécie de planta é descoberta no Jardim Botânico',
-      description: 'Pesquisadores da UFSM identificam uma nova espécie de planta nativa no Jardim Botânico.',
-      image: '/imgs/fundo1.jpeg',
-      link: '#'
+      title: 'Jardim Botânico Celebra o Dia das Mulheres com Programação Especial',
+      description: 'No dia 8 de março de 2025, o Jardim Botânico promoveu uma programação especial em celebração ao Dia Internacional da Mulher.',
+      image: 'https://www.ufsm.br/app/uploads/sites/363/2025/03/foto2-819x1024.jpg',
+      link: 'https://www.ufsm.br/orgaos-suplementares/jardim-botanico/2025/03/11/jardim-botanico-celebra-o-dia-das-mulheres-com-programacao-especial'
     },
     {
       id: 2,
-      title: 'Aberto programa de voluntariado 2025',
-      description: 'Junte-se à equipe do Jardim Botânico e contribua para a preservação ambiental.',
-      image: '/imgs/fundo2.jpg',
-      link: '#'
+      title: 'Edital para estudantes colaboradores DESCUBRA 2024',
+      description: 'O Jardim Botânico torna pública a seleção para estudantes colaboradores durante o DESCUBRA UFSM 2024.',
+      image: 'https://s1.static.brasilescola.uol.com.br/be/vestibular/-59d4d1236415e.jpg',
+      link: 'https://www.ufsm.br/orgaos-suplementares/jardim-botanico/2024/09/05/edital-para-estudantes-colaboradores-descubra-2024'
     },
     {
       id: 3,
-      title: 'Semana da Educação Ambiental',
-      description: 'Atividades educativas com escolas e oficinas abertas ao público durante toda a semana.',
-      image: '/imgs/fundo3.jpeg',
-      link: '#'
+      title: 'Jardim Botânico da UFSM reabre agendamento das Visitas Guiadas',
+      description: 'O Jardim Botânico da Universidade Federal de Santa Maria (UFSM) tem o prazer de anunciar a reabertura do agendamento para visitas guiadas.',
+      image: 'https://static.planetaexo.com/wp-content/uploads/2024/10/CAPA-BLOG-2000-x-1600-px-3-1.jpg',
+      link: 'https://www.ufsm.br/orgaos-suplementares/jardim-botanico/2024/07/22/jardim-botanico-da-ufsm-reabre-agendamento-visitas-guiadas'
     }
   ];
 
