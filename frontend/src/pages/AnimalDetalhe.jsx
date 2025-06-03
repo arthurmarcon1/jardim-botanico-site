@@ -98,7 +98,7 @@ const AnimalDetalhe = () => {
                     <Link
                         to="/"
                         style={{
-                            backgroundColor: '#8B4513',
+                            backgroundColor: 'rgba(241, 31, 31, 0.9)',
                             color: '#fff',
                             padding: '10px 16px',
                             borderRadius: '8px',
@@ -113,7 +113,7 @@ const AnimalDetalhe = () => {
                     <Link
                     to="/animais"
                     style={{
-                        backgroundColor: '#006400',
+                        backgroundColor: '#7CB342',
                         color: '#fff',
                         padding: '10px 16px',
                         borderRadius: '8px',

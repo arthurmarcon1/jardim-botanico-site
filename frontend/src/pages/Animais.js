@@ -96,7 +96,7 @@ const Animais = () => {
 
   const buttonStyle = {
     marginTop: 'auto',
-    backgroundColor: '#38a169',
+    backgroundColor: '#7CB342',
     color: '#fff',
     padding: '10px 16px',
     borderRadius: '8px',
