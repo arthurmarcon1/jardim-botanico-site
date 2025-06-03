@@ -5,37 +5,52 @@ const dadosAnimais = [
     {
         id: 1,
         name: 'Bugiu Ruivo',
-        description: 'Espécie de primata encontrada na América do Sul, conhecida por seu pelo avermelhado.',
+        sci_name: 'Alouatta guariba',
+        caracteristics: 'Primata de médio porte, com pelagem avermelhada e cauda preênsil. Os machos são maiores que as fêmeas e possuem uma barba característica.',
+        distribution: 'América do Sul, especialmente no Brasil, Argentina e Paraguai.',
+        habits: 'Vive em grupos sociais, é diurno e arbóreo, alimentando-se principalmente de folhas, frutas e flores.',
+        conservation_status: 'Vulnerável devido à perda de habitat e doenças como a febre amarela.',
         image: 'imgs/Bugiu-Ruivo.jpg',
-        details: 'O bugio ruivo, também conhecido como Alouatta guariba, é um dos maiores primatas encontrados no Brasil. É facilmente reconhecido por sua pelagem avermelhada e por seus sons característicos que podem ser ouvidos a vários quilômetros de distância. Esses rugidos são usados principalmente para marcar território e evitar conflitos com outros grupos. O bugio vive em grupos sociais compostos por poucos indivíduos e tem hábitos predominantemente diurnos.\n\nAlimenta-se principalmente de folhas, frutas e flores, sendo um importante dispersor de sementes na floresta. Infelizmente, a espécie sofre com a perda de habitat devido ao desmatamento e à fragmentação florestal, além de ser vulnerável a doenças como a febre amarela. A proteção de seu ambiente natural é essencial para garantir sua sobrevivência a longo prazo.'
     },
     {
         id: 2,
         name: 'Amanita Muscaria',
-        description: 'Cogumelo icônico, conhecido por sua aparência vibrante e toxicidade.',
+        sci_name: 'Amanita muscaria',
+        caracteristics: 'PCogumelo conhecido por seu chapéu vermelho com manchas brancas. Possui um anel na haste e uma volva na base.',
+        distribution: 'Encontrado em florestas temperadas e boreais do hemisfério norte, formando associação micorrízica com árvores.',
+        habits: 'Cresce em simbiose com raízes de árvores, ajudando na absorção de nutrientes. Aparece principalmente no outono.',
+        conservation_status: 'Não ameaçado, mas sua coleta deve ser evitada devido ao seu potencial tóxico.',
         image: 'imgs/Amanita_muscaria.jpg',
-        details: 'A Amanita muscaria é um dos cogumelos mais icônicos do mundo, conhecida por seu chapéu vermelho com pintas brancas, frequentemente retratado em livros infantis e jogos. Apesar de sua aparência encantadora, trata-se de um fungo tóxico que pode causar alucinações, náuseas e outros efeitos colaterais graves se ingerido. Ainda assim, em algumas culturas tradicionais da Sibéria, há relatos do uso ritualístico controlado desse cogumelo.\n\nEcologicamente, a Amanita muscaria desempenha um papel importante nas florestas temperadas e boreais, formando relações simbióticas com árvores como pinheiros e bétulas por meio da micorriza. Essas interações ajudam as árvores a absorver nutrientes do solo. Apesar do fascínio que causa, o consumo desse cogumelo deve ser evitado, principalmente por pessoas sem experiência com fungos silvestres.'
     },
     {
         id: 3,
         name: 'Quero-Quero',
-        description: 'Ave típica do Brasil, conhecida por seu canto e comportamento territorial.',
+        sci_name: 'Vanellus chilensis',
+        caracteristics: 'Ave de médio porte com plumagem cinza e branca, crista preta e pernas longas. Possui esporões nas asas que usa para defesa.',
+        distribution: 'Encontrado em todo o Brasil, especialmente em áreas abertas como campos, pastagens e áreas urbanas.',
+        habits: 'Conhecido por seu canto característico "quero-quero". É territorial e protege agressivamente seu ninho e filhotes.',
+        conservation_status: 'Não ameaçado de extinção, sendo uma espécie comum e bem adaptada a ambientes alterados pelo homem.',
         image: 'imgs/quero-quero2.jpg',
-        details: 'O quero-quero (Vanellus chilensis) é uma ave muito conhecida no Brasil e facilmente identificável por seu canto estridente e seu comportamento defensivo. É comum encontrá-lo em áreas abertas como pastagens, campos de futebol e até aeroportos. O nome "quero-quero" deriva do som que emite, especialmente quando sente que seu território está sendo invadido.\n\nA ave é extremamente territorial e corajosa, sendo capaz de enfrentar animais muito maiores quando está protegendo seu ninho, que geralmente é construído diretamente no chão. Quando ameaçado, o quero-quero executa voos rasantes para afugentar intrusos. Por sua valentia, foi escolhido como símbolo de vários clubes e instituições militares no Brasil.'
     },
     {
         id: 4,
         name: 'Tatu mulita',
-        description: 'Espécie de tatu encontrada no sul Brasil, conhecida por seu tamanho grande e carapaça.',
+        sci_name: 'Dasypus hybridus',
+        caracteristics: 'Pequeno mamífero com carapaça óssea, medindo entre 30-40 cm de comprimento. Possui hábitos noturnos e é conhecido por sua capacidade de se enrolar em forma de bola quando ameaçado.',
+        distribution: 'Encontrado no sul do Brasil, Uruguai, Paraguai e norte da Argentina, habitando principalmente campos e áreas abertas.',
+        habits: 'Alimenta-se principalmente de insetos, larvas e pequenos invertebrados. Constrói tocas no solo e é mais ativo durante a noite.',
+        conservation_status: 'Classificado como "Quase Ameaçado" devido à perda de habitat e caça predatória.',
         image: 'imgs/Dasypus-hybridus-1.jpg',
-        details: 'A mulita (Dasypus hybridus) é uma espécie de tatu encontrada principalmente na região Sul do Brasil, além de partes do Uruguai e Argentina. Tem hábitos noturnos e solitários, passando o dia escondida em tocas que ela mesma escava. A carapaça rígida, formada por placas ósseas, protege o animal de predadores naturais.\n\nAlimenta-se de insetos, larvas, raízes e pequenos frutos. Sua habilidade de cavar também ajuda a arejar o solo, desempenhando um papel ecológico relevante. Infelizmente, a espécie é frequentemente vítima de atropelamentos e da caça ilegal. A conservação da fauna nativa é essencial para proteger esse curioso e discreto habitante do solo sulista.'
     },
     {
         id: 5,
         name: 'Tigre d’água',
-        description: 'Espécie de tartaruga encontrada no Brasil, conhecida por viver em zonas de pântanos, banhados, lagos, riachos e rios.',
+        sci_name: 'Trachemys dorbigni',
+        caracteristics: 'Tartaruga de água doce com carapaça achatada e padrão de listras amarelas e pretas. Pode atingir até 30 cm de comprimento.',
+        distribution: 'Nativa do sul do Brasil, Uruguai e nordeste da Argentina, habitando rios, lagos e banhados.',
+        habits: 'Onívora, alimentando-se de plantas aquáticas, peixes pequenos e invertebrados. Passa grande parte do tempo tomando sol em pedras ou troncos.',
+        conservation_status: 'Classificada como "Quase Ameaçada" devido à perda de habitat e captura para comércio ilegal de animais.',
         image: 'imgs/tigre_dagua.jpg',
-        details: 'O tigre d’água, ou Trachemys dorbigni, é uma tartaruga semiaquática muito comum em banhados, rios e lagos do sul do Brasil. Com seu casco ovalado e listras amarelas no pescoço, é frequentemente adotado como animal de estimação. No entanto, quando solto na natureza após o crescimento, pode causar desequilíbrios ambientais.\n\nEsses animais são onívoros e se alimentam de pequenos invertebrados, peixes, plantas aquáticas e restos orgânicos. Vivem por muitas décadas em cativeiro e exigem cuidados específicos, como luz solar e alimentação equilibrada. A soltura irresponsável de tartarugas criadas em casa representa um risco para espécies nativas e ecossistemas locais.'
     }
 ];
 
@@ -51,50 +66,105 @@ const AnimalDetalhe = () => {
         <div
             style={{
                 minHeight: '100vh',
-                background: `url(/${animal.image}) no-repeat center center fixed`,
                 backgroundSize: 'cover',
-                padding: '80px 20px 40px 20px',
+                padding: '20px 20px 40px 20px',
                 boxSizing: 'border-box',
+                backgroundColor: 'rgb(250, 250, 250)',
             }}
         >
             <div
                 style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                    maxWidth: '800px',
+                    backgroundColor: 'rgb(250, 250, 250)',
+                    maxWidth: '1200px',
                     margin: '0 auto',
                     padding: '40px',
-                    borderRadius: '15px',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
                 }}
             >
-                <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '30px' }}>{animal.name}</h2>
-                <img
-                    src={`/${animal.image}`}
-                    alt={animal.name}
-                    style={{
-                        maxWidth: '100%',
-                        borderRadius: '10px',
-                        marginBottom: '25px',
-                        display: 'block',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                    }}
-                />
-                {animal.details.split('\n\n').map((paragrafo, index) => (
-                    <p
-                        key={index}
-                        style={{
-                            textAlign: 'justify',
-                            textIndent: '2em',
-                            fontSize: '1.1rem',
-                            lineHeight: '1.7',
-                            marginBottom: '20px',
-                        }}
-                    >
-                        {paragrafo}
+                <div className="especie-header" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                    <h2 className="section-title" style={{ fontSize: '2.5rem', color: '#7CB342', marginBottom: '0.5rem' }}>
+                        {animal.name}
+                    </h2>    
+                    <p className="nome-cientifico" style={{ fontSize: '1.2rem', fontStyle: 'italic', color: '#666' }}>
+                        <em>{animal.sci_name}</em>
                     </p>
-                ))}
-                <div style={{ marginTop: '30px' }}>
+                </div>
+
+                <div className="especie-content" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'stretch'}}>
+                    <div className="especie-imagem-container" style={{ height: '100%', display: 'flex' }}>
+                        <img 
+                            src={`/${animal.image}`} 
+                            alt={animal.name} 
+                            className="especie-imagem"
+                            style={{
+                                width: '100%',
+                                height: '100%', // Imagem ocupa 100% do container
+                                objectFit: 'cover', // Mantém proporção e cobre área
+                                borderRadius: '10px',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+                            }}
+                        />
+                    </div>
+
+                    <div className="especie-info" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div className="info-card" style={{
+                            backgroundColor: 'white',
+                            padding: '1.5rem',
+                            borderRadius: '10px',
+                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                        }}>
+                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
+                                Características
+                            </h3>
+                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
+                                {animal.caracteristics}
+                            </p>
+                        </div>
+
+                        <div className="info-card" style={{
+                            backgroundColor: 'white',
+                            padding: '1.5rem',
+                            borderRadius: '10px',
+                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                        }}>
+                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
+                                Distribuição
+                            </h3>
+                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
+                                {animal.distribution}
+                            </p>
+                        </div>
+
+                        <div className="info-card" style={{
+                            backgroundColor: 'white',
+                            padding: '1.5rem',
+                            borderRadius: '10px',
+                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                        }}>
+                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
+                                Hábitos
+                            </h3>
+                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
+                                {animal.habits}
+                            </p>
+                        </div>
+
+                        <div className="info-card" style={{
+                            backgroundColor: 'white',
+                            padding: '1.5rem',
+                            borderRadius: '10px',
+                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+                        }}>
+                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
+                                Status de Conservação
+                            </h3>
+                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
+                                {animal.conservation_status}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style={{ marginTop: '30px', display: 'flex', gap: '16px' }}>
                     <Link
                         to="/"
                         style={{
@@ -107,23 +177,22 @@ const AnimalDetalhe = () => {
                             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
                         }}
                     >
-                        ← Voltar para a Home
+                        ← Voltar para o Início
                     </Link>
-
                     <Link
-                    to="/animais"
-                    style={{
-                        backgroundColor: '#7CB342',
-                        color: '#fff',
-                        padding: '10px 16px',
-                        borderRadius: '8px',
-                        textDecoration: 'none',
-                        fontWeight: '500',
-                        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
-                    }}
-                >
-                    ← Voltar para Animais
-                </Link>
+                        to="/animais"
+                        style={{
+                            backgroundColor: '#7CB342',
+                            color: '#fff',
+                            padding: '10px 16px',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            fontWeight: '500',
+                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
+                        }}
+                    >
+                        ← Voltar para Espécies
+                    </Link>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
                             <Link className="nav-link fs-5" to="/sobre">Sobre</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link fs-5" to="/animais">Animais</Link>
+                            <Link className="nav-link fs-5" to="/animais">Espécies</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link fs-5" to="/telhado-verde">Telhado Verde</Link>
