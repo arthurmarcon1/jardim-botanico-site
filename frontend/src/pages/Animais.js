@@ -70,8 +70,8 @@ const Animais = () => {
 
   const imageStyle = {
     width: '100%',
-    height: 'auto',
-    objectFit: 'contain'
+    height: '50%',
+    objectFit: 'cover'
   };
 
   const contentStyle = {
@@ -96,7 +96,7 @@ const Animais = () => {
 
   const buttonStyle = {
     marginTop: 'auto',
-    backgroundColor: '#38a169',
+    backgroundColor: '#7CB342',
     color: '#fff',
     padding: '10px 16px',
     borderRadius: '8px',
