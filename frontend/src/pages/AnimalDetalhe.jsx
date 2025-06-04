@@ -72,6 +72,23 @@ const AnimalDetalhe = () => {
                 backgroundColor: 'rgb(250, 250, 250)',
             }}
         >
+            {/* Estilo responsivo para mobile */}
+            <style>{`
+                @media (max-width: 768px) {
+                    .especie-content {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        gap: 2rem !important;
+                    }
+                    .especie-imagem-container {
+                        order: 0 !important;
+                        margin-bottom: 1rem;
+                    }
+                    .especie-info {
+                        order: 1 !important;
+                    }
+                }
+            `}</style>
             <div
                 style={{
                     backgroundColor: 'rgb(250, 250, 250)',
