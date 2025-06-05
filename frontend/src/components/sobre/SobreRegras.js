@@ -48,24 +48,29 @@ const SobreRegras = () => {
 
   const styles = {
     container: {
+      width: isMobile ? '98vw' : '80vw',
+      maxWidth: '900px',
+      minHeight: isMobile ? '320px' : '340px',
       display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '40px 20px',
-      backgroundColor: '#f0fdf4',
-      borderRadius: '12px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-      gap: '30px',
-      maxWidth: '90%',
-      margin: '0 auto',
-      position: 'relative',
+      background: '#f0fdf4',
+      padding: isMobile ? '24px 6px' : '40px 32px',
+      gap: '32px',
+      boxSizing: 'border-box',
+      borderRadius: '18px',
+      margin: '32px auto',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
     },
     imageContainer: {
-      flex: 1,
+      flex: 'unset',
       display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
       justifyContent: 'center',
       position: 'relative',
+      marginTop: '18px',
     },
     image: {
         filter: 'brightness(0.96)', // <<< escurece a imagem
@@ -142,6 +147,17 @@ const SobreRegras = () => {
 
   return (
     <div style={styles.container}>
+      <div style={styles.content}>
+        <h2 style={styles.title}>Regras de Visitação 🌿</h2>
+        <ul style={styles.list}>
+          {regras.map((regra, index) => (
+            <li key={index} style={styles.listItem}>
+              <span style={styles.emoji}>{regraEmojis[index] || '✅'}</span>
+              <span style={styles.regraText}>{regra}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div style={styles.imageContainer}>
         <div style={styles.speechBubble}>
           Olá, visitante! 🌱<br />
@@ -153,18 +169,6 @@ const SobreRegras = () => {
           alt="Jerivaldo explicando as regras"
           style={styles.image}
         />
-      </div>
-
-      <div style={styles.content}>
-        <h2 style={styles.title}>Regras de Visitação 🌿</h2>
-        <ul style={styles.list}>
-          {regras.map((regra, index) => (
-            <li key={index} style={styles.listItem}>
-              <span style={styles.emoji}>{regraEmojis[index] || '✅'}</span>
-              <span style={styles.regraText}>{regra}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );
