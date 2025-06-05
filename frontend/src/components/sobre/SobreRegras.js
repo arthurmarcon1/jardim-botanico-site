@@ -10,21 +10,40 @@ const SobreRegras = () => {
   }, []);
 
   const regras = [
-    "Não jogar lixo no chão.",
-    "Não fumar.",
-    "Não tomar bebidas alcoólicas, ou quaisquer substâncias ilícitas.",
-    "Para passear com os pets, usar sempre a guia e permanecer nos entornos da sede.",
-    "Não entrar com o carro sem autorização.",
-    "Não portar armas, nem instrumentos destinados ao corte de vegetação, captura, caça, pesca ou quaisquer outras atividades prejudiciais à fauna e flora.",
-    "Jamais abandonar animais, nem plantar em áreas abertas sem autorização.",
-    "Jamais colher plantas, nem as flores, nem os frutos.",
-    "Jamais capturar animais silvestres, insetos, peixes, ou qualquer outro material biológico, ainda que caídos no chão.",
-    "Jamais maltratar animais silvestres, nem depredar e/ou destruir patrimônio público.",
-    "Não utilizar aparelhos sonoros, a menos que utilize fones de ouvido.",
-    "Sempre assinar o livro de visitações quando visitar o JB-UFSM.",
-    "Respeitar as datas e horários de funcionamento.",
-    "Respeitar os colegas e as orientações que são dadas durante a visitação.",
-    "Lembrar sempre que um dos objetivos mais importantes do JB-UFSM é a preservação das espécies."
+    "Não jogue lixo no chão.",
+    "Proibido fumar.",
+    "Sem bebidas alcoólicas ou drogas.",
+    "Pets só na guia e perto da sede.",
+    "Carros só com autorização.",
+    "Proibido armas e instrumentos de corte.",
+    "Não abandone animais ou plante sem permissão.",
+    "Não colha plantas, flores ou frutos.",
+    "Não capture animais ou materiais biológicos.",
+    "Não maltrate animais ou destrua patrimônio.",
+    "Use fones para ouvir música.",
+    "Assine o livro de visitas.",
+    "Respeite horários.",
+    "Respeite colegas e orientações.",
+    "Preserve as espécies!"
+  ];
+
+  // Emojis temáticos para cada regra
+  const regraEmojis = [
+    '🗑️', // Não jogar lixo no chão
+    '🚭', // Não fumar
+    '🚫🍺', // Não bebidas alcoólicas
+    '🐕‍🦺', // Pets na guia
+    '🚗❌', // Não entrar com carro
+    '🔪❌', // Não portar armas/instrumentos
+    '🐾❌', // Não abandonar animais
+    '🌸❌', // Não colher plantas
+    '🦋❌', // Não capturar animais
+    '🐒❌', // Não maltratar animais
+    '🎧', // Usar fones de ouvido
+    '📝', // Assinar livro de visita
+    '⏰', // Respeitar horários
+    '🤝', // Respeitar colegas
+    '🌱', // Preservação
   ];
 
   const styles = {
@@ -38,7 +57,7 @@ const SobreRegras = () => {
       borderRadius: '12px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
       gap: '30px',
-      maxWidth: '1000px',
+      maxWidth: '90%',
       margin: '0 auto',
       position: 'relative',
     },
@@ -89,12 +108,35 @@ const SobreRegras = () => {
       listStyleType: 'none',
       padding: 0,
       margin: 0,
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+      gap: '18px',
+      justifyItems: 'center',
     },
     listItem: {
       fontSize: '1.1rem',
-      marginBottom: '12px',
+      marginBottom: 0,
       lineHeight: '1.6',
       color: '#064e3b',
+      background: '#fff',
+      borderRadius: '10px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+      padding: '18px 18px 18px 16px',
+      minWidth: isMobile ? '90vw' : '0',
+      maxWidth: isMobile ? '95vw' : '320px',
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '16px',
+      flex: '1 1 0',
+    },
+    emoji: {
+      fontSize: '2rem',
+      flexShrink: 0,
+    },
+    regraText: {
+      flex: 1,
+      fontSize: '1.08rem',
     },
   };
 
@@ -118,7 +160,8 @@ const SobreRegras = () => {
         <ul style={styles.list}>
           {regras.map((regra, index) => (
             <li key={index} style={styles.listItem}>
-              {index+1}. {regra}
+              <span style={styles.emoji}>{regraEmojis[index] || '✅'}</span>
+              <span style={styles.regraText}>{regra}</span>
             </li>
           ))}
         </ul>
