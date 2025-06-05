@@ -17,7 +17,7 @@ const SobreIntro = () => {
   const styles = {
     container: {
       width: isMobile ? '98vw' : '80vw',
-      maxWidth: '900px',
+      maxWidth: '1200px',
       minHeight: isMobile ? '320px' : '340px',
       display: 'flex',
       flexDirection: 'column',
