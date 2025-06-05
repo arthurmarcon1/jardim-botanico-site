@@ -38,14 +38,14 @@ const Animais = () => {
   const sectionStyle = {
     padding: '60px 20px',
     backgroundColor: '#ffffff',
-    textAlign: 'center'
+    textAlign: 'center',
   };
 
   const titleStyle = {
     fontSize: '2rem',
     fontWeight: 'bold',
-    color: '#2d3748',
-    marginBottom: '40px'
+    color: 'rgb(124, 179, 66)',
+    marginBottom: '40px',
   };
 
   const gridStyle = {
@@ -62,7 +62,7 @@ const Animais = () => {
     borderRadius: '16px',
     boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
     overflow: 'hidden',
-    width: '300px',
+    width: '216px',
     display: 'flex',
     flexDirection: 'column',
     transition: 'box-shadow 0.3s ease'
@@ -84,13 +84,13 @@ const Animais = () => {
   const headingStyle = {
     fontSize: '1.2rem',
     fontWeight: '600',
-    color: '#2d3748',
+    color: 'rgb(32, 59, 2)',
     marginBottom: '10px'
   };
 
   const descStyle = {
     fontSize: '0.95rem',
-    color: '#4a5568',
+    color: 'rgb(32, 59, 2)',
     marginBottom: '20px'
   };
 
@@ -107,7 +107,7 @@ const Animais = () => {
 
   return (
     <section style={sectionStyle} id="animais">
-      <h2 style={titleStyle}>Animais no Jardim Botânico</h2>
+      <h2 style={titleStyle}>Espécies no Jardim Botânico</h2>
       <div style={gridStyle}>
         {animais.map((item) => (
           <div key={item.id} style={cardStyle}>
