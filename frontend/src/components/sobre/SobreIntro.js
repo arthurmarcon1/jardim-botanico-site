@@ -43,7 +43,7 @@ const SobreIntro = () => {
     heading: {
       fontSize: isMobile ? '1.5rem' : '2.5rem',
       fontWeight: 'bold',
-      color: 'rgb(6, 95, 70)',
+      color: 'rgb(124, 179, 66)',
       textAlign: isMobile ? 'center' : 'left',
       transition: 'transform 0.3s ease',
     },
@@ -60,9 +60,9 @@ const SobreIntro = () => {
     paragraph: {
       marginTop: '0.5rem',
       fontSize: isMobile ? '1rem' : '1.2rem',
-      color: 'rgb(6, 95, 70)',
       textAlign: isMobile ? 'center' : 'left',
       transition: 'transform 0.3s ease',
+      color: 'rgb(32, 59, 2)',
     },
   };
 

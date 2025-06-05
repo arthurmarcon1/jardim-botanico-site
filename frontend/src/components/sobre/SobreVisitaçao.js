@@ -53,18 +53,19 @@ const SobreVisitaçao = () => {
       maxWidth: isMobile ? '100%' : '50%',
       paddingRight: isMobile ? '0' : '40px',
       marginBottom: isMobile ? '20px' : 0,
-      color: 'rgb(6, 95, 70)', // verde escuro
       textAlign: isMobile ? 'center' : 'left',
     },
     heading: {
       fontSize: isMobile ? '1.5rem' : '2.5rem',
       fontWeight: 'bold',
       transition: 'transform 0.3s ease',
+      color: 'rgb(124, 179, 66)',
     },
     paragraph: {
       marginTop: '1rem',
       fontSize: isMobile ? '1rem' : '1.2rem',
       transition: 'transform 0.3s ease',
+      color: 'rgb(32, 59, 2)',
     },
   };
 

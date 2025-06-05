@@ -108,6 +108,7 @@ const SobreRegras = () => {
       marginBottom: '20px',
       color: '#065f46',
       textAlign: isMobile ? 'center' : 'left',
+      color: 'rgb(124, 179, 66)',
     },
     list: {
       listStyleType: 'none',
@@ -142,6 +143,7 @@ const SobreRegras = () => {
     regraText: {
       flex: 1,
       fontSize: '1.08rem',
+      color: 'rgb(32, 59, 2)',
     },
   };
 
