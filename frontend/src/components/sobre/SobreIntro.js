@@ -48,7 +48,7 @@ const SobreIntro = () => {
       transition: 'transform 0.3s ease',
     },
     jerivaldoImage: {
-      height: isMobile ? '90px' : '120px',
+      height: isMobile ? '300px' : '300px',
       objectFit: 'contain',
       transition: 'transform 0.3s ease',
       borderRadius: '12px',
