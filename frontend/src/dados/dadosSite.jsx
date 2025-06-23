@@ -1,5 +1,3 @@
-
-
 const dadosAnimais = [
   {
     id: 1,
@@ -72,3 +70,5 @@ const dadosAnimais = [
     image: 'imgs/tigre_dagua.jpg',
   },
 ];
+
+export { dadosAnimais };
