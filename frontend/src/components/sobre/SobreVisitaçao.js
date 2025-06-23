@@ -20,82 +20,82 @@ const SobreVisitaçao = () => {
       maxWidth: '1200px',
       minHeight: isMobile ? '320px' : '340px',
       display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       background: '#f0fdf4',
       padding: isMobile ? '24px 6px' : '40px 32px',
-      gap: '32px',
+      gap: '24px',
       boxSizing: 'border-box',
       borderRadius: '18px',
       margin: '32px auto',
       boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
     },
-    imageContainer: {
+    contentRow: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: isMobile ? 'column' : 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: isMobile ? '18px' : '32px',
+    },
+    textBlock: {
       flex: 1,
       display: 'flex',
+      flexDirection: 'column',
+      alignItems: isMobile ? 'center' : 'flex-start',
       justifyContent: 'center',
-      alignItems: 'center',
-      marginLeft: isMobile ? '0' : '40px',
-      marginTop: isMobile ? '10px' : '0',
-    },
-    JardimBotanicoImg: {
-      height: isMobile ? '180px' : '340px',
-      objectFit: 'contain',
-      transition: 'transform 0.3s ease',
-      borderRadius: '12px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
-      background: '#fff',
-      padding: '8px',
-    },
-    textContainer: {
-      flex: 1,
-      maxWidth: isMobile ? '100%' : '50%',
-      paddingRight: isMobile ? '0' : '40px',
-      marginBottom: isMobile ? '20px' : 0,
-      textAlign: isMobile ? 'center' : 'left',
     },
     heading: {
       fontSize: isMobile ? '1.5rem' : '2.5rem',
       fontWeight: 'bold',
-      transition: 'transform 0.3s ease',
       color: 'rgb(124, 179, 66)',
+      textAlign: isMobile ? 'center' : 'left',
+      transition: 'transform 0.3s ease',
     },
     paragraph: {
-      marginTop: '1rem',
+      marginTop: '0.5rem',
       fontSize: isMobile ? '1rem' : '1.2rem',
+      textAlign: isMobile ? 'center' : 'left',
       transition: 'transform 0.3s ease',
       color: 'rgb(32, 59, 2)',
+    },
+    sideImage: {
+      width: isMobile ? '100%' : '340px',
+      height: isMobile ? '180px' : '260px',
+      objectFit: 'cover',
+      borderRadius: '14px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.13)',
+      marginLeft: isMobile ? '0' : '18px',
     },
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.imageContainer}>
+      <div style={styles.contentRow}>
         <img
-          src="/imgs/Jardim-Botanico.jpg"
-          alt="jardim botanico"
-          style={styles.JardimBotanicoImg}
+          src="/imgs/fundo1.jpeg"
+          alt="Jardim Botânico"
+          style={styles.sideImage}
         />
-      </div>
-
-      <div style={styles.textContainer}>
-        <h1
-          style={styles.heading}
-          onMouseEnter={(e) => handleHover(e, 1.05)}
-          onMouseLeave={(e) => handleHover(e, 1)}
-        >
-          Visitação🚶‍♂️🚶‍♀️
-        </h1>
-        <p
-          style={styles.paragraph}
-          onMouseEnter={(e) => handleHover(e, 1.05)}
-          onMouseLeave={(e) => handleHover(e, 1)}
-        >
-          O Jardim Botânico está aberto ao público e recebe visitantes de todas as idades, oferecendo trilhas educativas,
+        <div style={styles.textBlock}>
+          <h1
+            style={styles.heading}
+            onMouseEnter={(e) => handleHover(e, 1.05)}
+            onMouseLeave={(e) => handleHover(e, 1)}
+          >
+            Visitação🚶‍♂️🚶‍♀️
+          </h1>
+          <p
+            style={styles.paragraph}
+            onMouseEnter={(e) => handleHover(e, 1.05)}
+            onMouseLeave={(e) => handleHover(e, 1)}
+          >
+            O Jardim Botânico está aberto ao público e recebe visitantes de todas as idades, oferecendo trilhas educativas,
           exposições e atividades interativas. Escolas e grupos podem agendar visitas guiadas para uma experiência mais
           aprofundada sobre a importância da biodiversidade.
-        </p>
+          </p>
+        </div>
       </div>
     </div>
   );

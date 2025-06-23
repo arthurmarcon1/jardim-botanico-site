@@ -31,14 +31,20 @@ const SobreIntro = () => {
       margin: '32px auto',
       boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
     },
-    topRow: {
+    contentRow: {
       width: '100%',
       display: 'flex',
       flexDirection: isMobile ? 'column' : 'row',
       alignItems: 'center',
-      justifyContent: isMobile ? 'center' : 'flex-start',
-      gap: isMobile ? '12px' : '24px',
-      marginBottom: isMobile ? '10px' : '18px',
+      justifyContent: 'space-between',
+      gap: isMobile ? '18px' : '32px',
+    },
+    textBlock: {
+      flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: isMobile ? 'center' : 'flex-start',
+      justifyContent: 'center',
     },
     heading: {
       fontSize: isMobile ? '1.5rem' : '2.5rem',
@@ -47,16 +53,6 @@ const SobreIntro = () => {
       textAlign: isMobile ? 'center' : 'left',
       transition: 'transform 0.3s ease',
     },
-    jerivaldoImage: {
-      height: isMobile ? '90px' : '120px',
-      objectFit: 'contain',
-      transition: 'transform 0.3s ease',
-      borderRadius: '12px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
-      background: '#fff',
-      padding: '6px',
-      marginLeft: isMobile ? '0' : '18px',
-    },
     paragraph: {
       marginTop: '0.5rem',
       fontSize: isMobile ? '1rem' : '1.2rem',
@@ -64,31 +60,41 @@ const SobreIntro = () => {
       transition: 'transform 0.3s ease',
       color: 'rgb(32, 59, 2)',
     },
+    sideImage: {
+      width: isMobile ? '100%' : '340px',
+      height: isMobile ? '180px' : '260px',
+      objectFit: 'cover',
+      borderRadius: '14px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.13)',
+      marginLeft: isMobile ? '0' : '18px',
+    },
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.topRow}>
-        <h1
-          style={styles.heading}
-          onMouseEnter={(e) => handleHover(e, 1.05)}
-          onMouseLeave={(e) => handleHover(e, 1)}
-        >
-          Sobre o Jardim Botânico🌿
-        </h1>
+      <div style={styles.contentRow}>
+        <div style={styles.textBlock}>
+          <h1
+            style={styles.heading}
+            onMouseEnter={(e) => handleHover(e, 1.05)}
+            onMouseLeave={(e) => handleHover(e, 1)}
+          >
+            Sobre o Jardim Botânico🌿
+          </h1>
+          <p
+            style={styles.paragraph}
+            onMouseEnter={(e) => handleHover(e, 1.05)}
+            onMouseLeave={(e) => handleHover(e, 1)}
+          >
+            O Jardim Botânico da UFSM é um espaço dedicado à conservação da biodiversidade, pesquisa e educação ambiental, promovendo a preservação do meio ambiente e a conscientização da comunidade.
+          </p>
+        </div>
         <img
-          src="/imgs/fundo3.jpeg"
-          alt="Jerivaldo"
-          style={styles.jerivaldoImage}
+          src="/imgs/fundo2.jpg"
+          alt="Jardim Botânico"
+          style={styles.sideImage}
         />
       </div>
-      <p
-        style={styles.paragraph}
-        onMouseEnter={(e) => handleHover(e, 1.05)}
-        onMouseLeave={(e) => handleHover(e, 1)}
-      >
-        O Jardim Botânico da UFSM é um espaço dedicado à conservação da biodiversidade, pesquisa e educação ambiental, promovendo a preservação do meio ambiente e a conscientização da comunidade.
-      </p>
     </div>
   );
 };

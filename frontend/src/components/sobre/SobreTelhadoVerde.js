@@ -42,9 +42,7 @@ const SobreVisitaçao = () => {
       height: isMobile ? '180px' : '340px',
       objectFit: 'contain',
       transition: 'transform 0.3s ease',
-      borderRadius: '12px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
-      background: '#fff',
+      borderRadius: '14px',
       padding: '8px',
     },
     textContainer: {
