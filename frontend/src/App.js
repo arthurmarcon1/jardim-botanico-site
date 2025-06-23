@@ -10,6 +10,7 @@ import TelhadoVerde from './pages/TelhadoVerde';
 import AnimalDetalhe from './pages/AnimalDetalhe';
 import Footer from './components/Footer';
 import "leaflet/dist/leaflet.css";
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/animal/:id" element={<AnimalDetalhe />} />
           <Route path="/conteudo" element={<ConteudoMapa />} />
           <Route path="/telhado-verde" element={<TelhadoVerde />} />
+          <Route path="/admin" element={<LoginPage />} />
         </Routes>
       </div>
       <Footer />

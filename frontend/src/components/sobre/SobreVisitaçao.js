@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 const SobreVisitaçao = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -15,79 +16,69 @@ const SobreVisitaçao = () => {
 
   const styles = {
     container: {
-      position: 'relative',
-      width: '100%',
-      overflow: 'hidden',
+      width: isMobile ? '98vw' : '80vw',
+      maxWidth: '1200px',
+      minHeight: isMobile ? '320px' : '340px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#f0fdf4',
+      padding: isMobile ? '24px 6px' : '40px 32px',
+      gap: '24px',
+      boxSizing: 'border-box',
+      borderRadius: '18px',
+      margin: '32px auto',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
     },
-    backgroundImage: {
+    contentRow: {
       width: '100%',
-      height: isMobile ? '400px' : '640px',
-      objectFit: 'cover',
-      filter: 'brightness(0.5)', // <<< escurece a imagem
-    },
-    overlay: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
       display: 'flex',
       flexDirection: isMobile ? 'column' : 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      padding: isMobile ? '20px' : '40px',
-      color: 'white',
-      textAlign: isMobile ? 'center' : 'left',
-      gap: '20px',
+      gap: isMobile ? '18px' : '32px',
     },
-    imageContainer: {
+    textBlock: {
       flex: 1,
       display: 'flex',
-      justifyContent: isMobile ? 'center' : 'flex-start',
-      marginTop: isMobile ? '20px' : '0',
-    },
-    JardimBotanicoImg: {
-      height: isMobile ? '250px' : '400px',
-      objectFit: 'contain',
-      transition: 'transform 0.3s ease',
-    },
-    textContainer: {
-      flex: 1,
-      maxWidth: isMobile ? '100%' : '50%',
-      paddingRight: isMobile ? '0' : '60px',
+      flexDirection: 'column',
+      alignItems: isMobile ? 'center' : 'flex-start',
+      justifyContent: 'center',
     },
     heading: {
-      fontSize: isMobile ? '1.8rem' : '2.5rem',
+      fontSize: isMobile ? '1.5rem' : '2.5rem',
       fontWeight: 'bold',
+      color: 'rgb(124, 179, 66)',
+      textAlign: isMobile ? 'center' : 'left',
       transition: 'transform 0.3s ease',
     },
     paragraph: {
-      marginTop: '1rem',
+      marginTop: '0.5rem',
       fontSize: isMobile ? '1rem' : '1.2rem',
+      textAlign: isMobile ? 'center' : 'left',
       transition: 'transform 0.3s ease',
+      color: 'rgb(32, 59, 2)',
+    },
+    sideImage: {
+      width: isMobile ? '100%' : '340px',
+      height: isMobile ? '180px' : '260px',
+      objectFit: 'cover',
+      borderRadius: '14px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.13)',
+      marginLeft: isMobile ? '0' : '18px',
     },
   };
 
   return (
     <div style={styles.container}>
-      <img
-        src="/imgs/fundo1.jpeg"
-        alt="Fundo do Jardim Botânico"
-        style={styles.backgroundImage}
-      />
-
-      <div style={styles.overlay}>
-        {/* Agora a imagem vem primeiro */}
-        <div style={styles.imageContainer}>
-          <img
-            src="/imgs/Jardim-Botanico.jpg"
-            alt="jardim botanico"
-            style={styles.JardimBotanicoImg}
-          />
-        </div>
-
-        <div style={styles.textContainer}>
+      <div style={styles.contentRow}>
+        <img
+          src="/imgs/fundo1.jpeg"
+          alt="Jardim Botânico"
+          style={styles.sideImage}
+        />
+        <div style={styles.textBlock}>
           <h1
             style={styles.heading}
             onMouseEnter={(e) => handleHover(e, 1.05)}
@@ -101,8 +92,8 @@ const SobreVisitaçao = () => {
             onMouseLeave={(e) => handleHover(e, 1)}
           >
             O Jardim Botânico está aberto ao público e recebe visitantes de todas as idades, oferecendo trilhas educativas,
-                exposições e atividades interativas. Escolas e grupos podem agendar visitas guiadas para uma experiência mais
-                aprofundada sobre a importância da biodiversidade.
+          exposições e atividades interativas. Escolas e grupos podem agendar visitas guiadas para uma experiência mais
+          aprofundada sobre a importância da biodiversidade.
           </p>
         </div>
       </div>
