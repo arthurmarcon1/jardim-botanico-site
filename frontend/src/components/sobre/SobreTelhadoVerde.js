@@ -39,7 +39,7 @@ const SobreVisitaçao = () => {
       marginTop: isMobile ? '10px' : '0',
     },
     JardimBotanicoImg: {
-      height: isMobile ? '180px' : '340px',
+      height: isMobile ? '380px' : '400px',
       objectFit: 'contain',
       transition: 'transform 0.3s ease',
       borderRadius: '14px',

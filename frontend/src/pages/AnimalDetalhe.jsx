@@ -1,219 +1,287 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useAuth } from '../auth/AuthContext';
 
-const dadosAnimais = [
-    {
-        id: 1,
-        name: 'Bugiu Ruivo',
-        sci_name: 'Alouatta guariba',
-        caracteristics: 'Primata de médio porte, com pelagem avermelhada e cauda preênsil. Os machos são maiores que as fêmeas e possuem uma barba característica.',
-        distribution: 'América do Sul, especialmente no Brasil, Argentina e Paraguai.',
-        habits: 'Vive em grupos sociais, é diurno e arbóreo, alimentando-se principalmente de folhas, frutas e flores.',
-        conservation_status: 'Vulnerável devido à perda de habitat e doenças como a febre amarela.',
-        image: 'imgs/Bugiu-Ruivo.jpg',
-    },
-    {
-        id: 2,
-        name: 'Amanita Muscaria',
-        sci_name: 'Amanita muscaria',
-        caracteristics: 'PCogumelo conhecido por seu chapéu vermelho com manchas brancas. Possui um anel na haste e uma volva na base.',
-        distribution: 'Encontrado em florestas temperadas e boreais do hemisfério norte, formando associação micorrízica com árvores.',
-        habits: 'Cresce em simbiose com raízes de árvores, ajudando na absorção de nutrientes. Aparece principalmente no outono.',
-        conservation_status: 'Não ameaçado, mas sua coleta deve ser evitada devido ao seu potencial tóxico.',
-        image: 'imgs/Amanita_muscaria.jpg',
-    },
-    {
-        id: 3,
-        name: 'Quero-Quero',
-        sci_name: 'Vanellus chilensis',
-        caracteristics: 'Ave de médio porte com plumagem cinza e branca, crista preta e pernas longas. Possui esporões nas asas que usa para defesa.',
-        distribution: 'Encontrado em todo o Brasil, especialmente em áreas abertas como campos, pastagens e áreas urbanas.',
-        habits: 'Conhecido por seu canto característico "quero-quero". É territorial e protege agressivamente seu ninho e filhotes.',
-        conservation_status: 'Não ameaçado de extinção, sendo uma espécie comum e bem adaptada a ambientes alterados pelo homem.',
-        image: 'imgs/quero-quero2.jpg',
-    },
-    {
-        id: 4,
-        name: 'Tatu mulita',
-        sci_name: 'Dasypus hybridus',
-        caracteristics: 'Pequeno mamífero com carapaça óssea, medindo entre 30-40 cm de comprimento. Possui hábitos noturnos e é conhecido por sua capacidade de se enrolar em forma de bola quando ameaçado.',
-        distribution: 'Encontrado no sul do Brasil, Uruguai, Paraguai e norte da Argentina, habitando principalmente campos e áreas abertas.',
-        habits: 'Alimenta-se principalmente de insetos, larvas e pequenos invertebrados. Constrói tocas no solo e é mais ativo durante a noite.',
-        conservation_status: 'Classificado como "Quase Ameaçado" devido à perda de habitat e caça predatória.',
-        image: 'imgs/Dasypus-hybridus-1.jpg',
-    },
-    {
-        id: 5,
-        name: 'Tigre d’água',
-        sci_name: 'Trachemys dorbigni',
-        caracteristics: 'Tartaruga de água doce com carapaça achatada e padrão de listras amarelas e pretas. Pode atingir até 30 cm de comprimento.',
-        distribution: 'Nativa do sul do Brasil, Uruguai e nordeste da Argentina, habitando rios, lagos e banhados.',
-        habits: 'Onívora, alimentando-se de plantas aquáticas, peixes pequenos e invertebrados. Passa grande parte do tempo tomando sol em pedras ou troncos.',
-        conservation_status: 'Classificada como "Quase Ameaçada" devido à perda de habitat e captura para comércio ilegal de animais.',
-        image: 'imgs/tigre_dagua.jpg',
-    }
-];
+const cardStyle = {
+  backgroundColor: 'white',
+  padding: '1.5rem',
+  borderRadius: '10px',
+  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+};
+
+const infoTitleStyle = {
+  fontSize: '1.3rem',
+  color: '#7CB342',
+  marginBottom: '0.5rem',
+};
+
+const infoTextStyle = {
+  lineHeight: '1.6',
+  color: '#333',
+};
+
+const linkBaseStyle = {
+  color: '#fff',
+  padding: '10px 16px',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  fontWeight: '500',
+  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
+};
 
 const AnimalDetalhe = () => {
-    const { id } = useParams();
-    const animal = dadosAnimais.find((a) => a.id === parseInt(id));
+  const { id } = useParams();
+  const { user } = useAuth();
+  const [animais, setAnimais] = useState([]);
+  const [editMode, setEditMode] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    sci_name: '',
+    caracteristics: '',
+    distribution: '',
+    habits: '',
+    conservation_status: '',
+    image: '',
+  });
 
-    if (!animal) {
-        return <div>Animal não encontrado.</div>;
+  useEffect(() => {
+    const animaisSalvos = localStorage.getItem('animais');
+    if (animaisSalvos) {
+      setAnimais(JSON.parse(animaisSalvos));
     }
+  }, []);
 
+  const animal = animais.find((a) => a.id === Number(id));
+
+  useEffect(() => {
+    if (animal) {
+      setFormData({ ...animal });
+    }
+  }, [animal]);
+
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    const novosAnimais = animais.map((a) => {
+      if (a.id === Number(id)) {
+        return { ...formData };
+      }
+      return a;
+    });
+
+    setAnimais(novosAnimais);
+    localStorage.setItem('animais', JSON.stringify(novosAnimais));
+    setEditMode(false);
+  };
+
+  if (!animal)
     return (
-        <div
-            style={{
-                minHeight: '100vh',
-                backgroundSize: 'cover',
-                padding: '20px 20px 40px 20px',
-                boxSizing: 'border-box',
-                backgroundColor: 'rgb(250, 250, 250)',
-            }}
-        >
-            {/* Estilo responsivo para mobile */}
-            <style>{`
-                @media (max-width: 768px) {
-                    .especie-content {
-                        display: flex !important;
-                        flex-direction: column !important;
-                        gap: 2rem !important;
-                    }
-                    .especie-imagem-container {
-                        order: 0 !important;
-                        margin-bottom: 1rem;
-                    }
-                    .especie-info {
-                        order: 1 !important;
-                    }
-                }
-            `}</style>
-            <div
-                style={{
-                    backgroundColor: 'rgb(250, 250, 250)',
-                    maxWidth: '1200px',
-                    margin: '0 auto',
-                    padding: '40px',
-                }}
-            >
-                <div className="especie-header" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <h2 className="section-title" style={{ fontSize: '2.5rem', color: '#7CB342', marginBottom: '0.5rem' }}>
-                        {animal.name}
-                    </h2>    
-                    <p className="nome-cientifico" style={{ fontSize: '1.2rem', fontStyle: 'italic', color: '#666' }}>
-                        <em>{animal.sci_name}</em>
-                    </p>
-                </div>
-
-                <div className="especie-content" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'stretch'}}>
-                    <div className="especie-imagem-container" style={{ height: '100%', display: 'flex' }}>
-                        <img 
-                            src={`/${animal.image}`} 
-                            alt={animal.name} 
-                            className="especie-imagem"
-                            style={{
-                                width: '100%',
-                                height: '100%', // Imagem ocupa 100% do container
-                                objectFit: 'cover', // Mantém proporção e cobre área
-                                borderRadius: '10px',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-                            }}
-                        />
-                    </div>
-
-                    <div className="especie-info" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                        <div className="info-card" style={{
-                            backgroundColor: 'white',
-                            padding: '1.5rem',
-                            borderRadius: '10px',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
-                        }}>
-                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
-                                Características
-                            </h3>
-                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
-                                {animal.caracteristics}
-                            </p>
-                        </div>
-
-                        <div className="info-card" style={{
-                            backgroundColor: 'white',
-                            padding: '1.5rem',
-                            borderRadius: '10px',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
-                        }}>
-                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
-                                Distribuição
-                            </h3>
-                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
-                                {animal.distribution}
-                            </p>
-                        </div>
-
-                        <div className="info-card" style={{
-                            backgroundColor: 'white',
-                            padding: '1.5rem',
-                            borderRadius: '10px',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
-                        }}>
-                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
-                                Hábitos
-                            </h3>
-                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
-                                {animal.habits}
-                            </p>
-                        </div>
-
-                        <div className="info-card" style={{
-                            backgroundColor: 'white',
-                            padding: '1.5rem',
-                            borderRadius: '10px',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
-                        }}>
-                            <h3 className="info-title" style={{ fontSize: '1.3rem', color: '#7CB342', marginBottom: '0.5rem' }}>
-                                Status de Conservação
-                            </h3>
-                            <p className="info-text" style={{ lineHeight: '1.6', color: '#333' }}>
-                                {animal.conservation_status}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style={{ marginTop: '30px', display: 'flex', gap: '16px' }}>
-                    <Link
-                        to="/"
-                        style={{
-                            backgroundColor: 'rgba(241, 31, 31, 0.9)',
-                            color: '#fff',
-                            padding: '10px 16px',
-                            borderRadius: '8px',
-                            textDecoration: 'none',
-                            fontWeight: '500',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
-                        }}
-                    >
-                        ← Voltar para o Início
-                    </Link>
-                    <Link
-                        to="/animais"
-                        style={{
-                            backgroundColor: '#7CB342',
-                            color: '#fff',
-                            padding: '10px 16px',
-                            borderRadius: '8px',
-                            textDecoration: 'none',
-                            fontWeight: '500',
-                            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
-                        }}
-                    >
-                        ← Voltar para Espécies
-                    </Link>
-                </div>
-            </div>
-        </div>
+      <div style={{ padding: '2rem', textAlign: 'center' }}>
+        Animal não encontrado.
+      </div>
     );
+
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        backgroundColor: 'rgb(250, 250, 250)',
+        padding: '20px 20px 40px',
+        boxSizing: 'border-box',
+      }}
+    >
+      <style>{`
+        @media (max-width: 768px) {
+          .especie-content {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2rem !important;
+          }
+          .especie-imagem-container {
+            order: 0 !important;
+            margin-bottom: 1rem;
+          }
+          .especie-info {
+            order: 1 !important;
+          }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 40 }}>
+        <header className="especie-header" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          {editMode ? (
+            <>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => handleChange('name', e.target.value)}
+                style={{
+                  fontSize: '2.5rem',
+                  color: '#7CB342',
+                  marginBottom: 8,
+                  textAlign: 'center',
+                  border: 'none',
+                  borderBottom: '2px solid #7CB342',
+                  outline: 'none',
+                  width: '100%',
+                }}
+              />
+              <input
+                type="text"
+                value={formData.sci_name}
+                onChange={(e) => handleChange('sci_name', e.target.value)}
+                style={{
+                  fontSize: '1.2rem',
+                  fontStyle: 'italic',
+                  color: '#666',
+                  textAlign: 'center',
+                  border: 'none',
+                  borderBottom: '1px solid #ccc',
+                  outline: 'none',
+                  width: '100%',
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <h2 style={{ fontSize: '2.5rem', color: '#7CB342', marginBottom: 8 }}>
+                {formData.name}
+              </h2>
+              <p style={{ fontSize: '1.2rem', fontStyle: 'italic', color: '#666' }}>
+                <em>{formData.sci_name}</em>
+              </p>
+            </>
+          )}
+        </header>
+
+        <main className="especie-content" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+          <div className="especie-imagem-container" style={{ height: '100%', display: 'flex' }}>
+            {editMode ? (
+              <input
+                type="text"
+                value={formData.image}
+                onChange={(e) => handleChange('image', e.target.value)}
+                placeholder="Nome do arquivo da imagem (ex: animal.jpg)"
+                style={{
+                  width: '100%',
+                  padding: '0.5rem',
+                  fontSize: '1rem',
+                  borderRadius: '6px',
+                  border: '1px solid #ccc',
+                }}
+              />
+            ) : (
+              <img
+                src={`/${formData.image}`}
+                alt={formData.name}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: 10,
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                }}
+              />
+            )}
+          </div>
+
+          <div className="especie-info" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            {['caracteristics', 'distribution', 'habits', 'conservation_status'].map((field) => (
+              <section key={field} style={cardStyle}>
+                <h3 style={infoTitleStyle}>
+                  {{
+                    caracteristics: 'Características',
+                    distribution: 'Distribuição',
+                    habits: 'Hábitos',
+                    conservation_status: 'Status de Conservação',
+                  }[field]}
+                </h3>
+                {editMode ? (
+                  <textarea
+                    rows={4}
+                    value={formData[field]}
+                    onChange={(e) => handleChange(field, e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '0.5rem',
+                      fontSize: '1rem',
+                      borderRadius: '6px',
+                      border: '1px solid #ccc',
+                    }}
+                  />
+                ) : (
+                  <p style={infoTextStyle}>{formData[field]}</p>
+                )}
+              </section>
+            ))}
+          </div>
+        </main>
+
+        {user && (
+          <div style={{ marginTop: 20, display: 'flex', gap: 10 }}>
+            {editMode ? (
+              <>
+                <button
+                  onClick={handleSave}
+                  style={{
+                    backgroundColor: '#7CB342',
+                    color: '#fff',
+                    padding: '10px 16px',
+                    borderRadius: '8px',
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Salvar Alterações
+                </button>
+                <button
+                  onClick={() => setEditMode(false)}
+                  style={{
+                    backgroundColor: '#ccc',
+                    color: '#333',
+                    padding: '10px 16px',
+                    borderRadius: '8px',
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Cancelar
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => setEditMode(true)}
+                style={{
+                  backgroundColor: '#7CB342',
+                  color: '#fff',
+                  padding: '10px 16px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                Editar Informações
+              </button>
+            )}
+          </div>
+        )}
+
+        <nav style={{ marginTop: 30, display: 'flex', gap: 16 }}>
+          <Link to="/" style={{ ...linkBaseStyle, backgroundColor: 'rgba(241, 31, 31, 0.9)' }}>
+            ← Voltar para o Início
+          </Link>
+          <Link to="/animais" style={{ ...linkBaseStyle, backgroundColor: '#7CB342' }}>
+            ← Voltar para Espécies
+          </Link>
+        </nav>
+      </div>
+    </div>
+  );
 };
 
 export default AnimalDetalhe;
